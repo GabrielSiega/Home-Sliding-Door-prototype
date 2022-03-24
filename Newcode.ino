@@ -30,7 +30,6 @@ int Alarm2 = 6; //Initialise PWN pin for Alarm2
 int Redled1 = 9; // the PWM pin the LED is attached to
 int Redled2 = 10; // the PWM pin the LED is attached to
 int Redled3 = 11; // the PWM pin the LED is attached to
-int Redled4 = 12; // the PWM pin the LED is attached to
 int Redled5 = 13; // the PWM pin the LED is attached to
 int Redled6 = 8; // the PWM pin the LED is attached to
 
@@ -38,6 +37,7 @@ int Redled6 = 8; // the PWM pin the LED is attached to
 
 int SensorValue = 0;
 int LedWhite = 7;           //Temperature led
+int LedOrange1 = 12; // the PWM pin the LED is attached to (ORANGE DISTANCE1 LED)
 
 const float baselineTemp = 24.0; 
 
@@ -71,8 +71,6 @@ pinMode(echoPin2, INPUT);
    pinMode(Redled2, OUTPUT);
    // declare pin 11 to be an output:
    pinMode(Redled3, OUTPUT);
-   // declare pin 12 to be an output:
-   pinMode(Redled4, OUTPUT);
    // declare pin 13 to be an output:
    pinMode(Redled5, OUTPUT);
    // declare pin 8 to be an output:
@@ -149,8 +147,6 @@ digitalWrite(Alarm2, LOW);
    analogWrite(Redled2, brightness);
   // set the brightness of pin 11:
    analogWrite(Redled3, brightness);
-  // set the brightness of pin 12:
-   analogWrite(Redled4, brightness);
   // set the brightness of pin 13:
    analogWrite(Redled5, brightness);
   // set the brightness of pin 8:
@@ -189,13 +185,13 @@ digitalWrite(LedWhite, LOW);
 
    if (distance1 <= 4){
    // Blynk.notify("The bin is FULL!"); 
-    digitalWrite(Redled4,HIGH); //Green Led
+    digitalWrite(LedOrange1,HIGH); //Green Led
   //  lcd.clear();
   //  lcd.print(0,0, "The Bin is Full");
     delay(50);
    }
    else if (distance1 > 5){
-    digitalWrite(Redled4,LOW);
+    digitalWrite(LedOrange1,LOW);
     delay(50);
    }   
   
